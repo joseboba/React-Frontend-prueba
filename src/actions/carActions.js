@@ -101,8 +101,7 @@ export const updateCar = (car) => {
 
         try {
             
-            if(placa !== ''){
-                const resp = await fetchConToken(`car/${id}`, { marca, modelo, year, placa, estado }, 'PUT');
+            const resp = await fetchConToken(`car/${id}`, car, 'PUT');
                 const body = await resp.json();
     
                 if(body.ok){
@@ -111,17 +110,6 @@ export const updateCar = (car) => {
                 }else{
                     Swal.fire('Error', body.msg, 'error')
                 }
-            }else if(placa === ''){
-                const resp = await fetchConToken(`car/${id}`, { marca, modelo, year, estado }, 'PUT');
-                const body = await resp.json();
-                
-                if(body.ok){
-                    Swal.fire('Actualizado', body.msg, 'success');
-                    dispatch(updated({ id, marca, modelo, year, placa, estado }))
-                }else{
-                    Swal.fire('Error', body.msg , 'error');
-                }
-            }
     
 
         } catch (error) {

@@ -9,20 +9,21 @@ import '../../styles/components/user/EditUser.css'
 export const EditUser = () => {
 
     
-    const { name: Nombre, email: Correo, username: Usuario } = useSelector( state => state.auth.user)
+    const { name, email, username } = useSelector( state => state.auth.user)
 
-    const [formValues, handleInputChange] = useForm({ name: '', email: '', username: ''})
-    const { name , email , username } = formValues;
+    const [formValues, handleInputChange] = useForm({ name, email, username})
+    const { name:Nombre , email:Correo , username:Usuario } = formValues;
 
     const dispatch = useDispatch()
 
 
     const handleSumbit = (e) => {
         e.preventDefault();
-        if(name === '' && email === '' && username === ''){
+        if(Nombre === '' || Correo === '' || Usuario === ''){
             Swal.fire('Error', 'Los campos estan vacios', 'error')
         }else{
             dispatch(updateUser(formValues));
+            console.log(formValues);
         }
 
     }

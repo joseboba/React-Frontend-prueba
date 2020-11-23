@@ -80,7 +80,8 @@ export const renewToken = () => {
     return async(dispatch) => {
 
         const resp = await fetchConToken('user/renew');
-        const body = await resp.json();
+            const body = await resp.json();
+            console.log(body)
 
 
         const { id, name, email, username } = body.usuario;

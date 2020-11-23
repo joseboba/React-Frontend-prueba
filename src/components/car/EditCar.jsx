@@ -13,7 +13,7 @@ export const EditCar = () => {
     const { selected } = useSelector(state => state.cars)
     const { marca: Marca, modelo: Mo, year: Y, placa: P, estado: E} = selected;
 
-    const [ formValues, handleInputChange ] = useForm({marca: Marca, modelo: Mo, year: Y, placa: '', estado: E});
+    const [ formValues, handleInputChange ] = useForm({marca: Marca, modelo: Mo, year: Y, placa: P, estado: E});
     const { marca, modelo, year, placa, estado} = formValues;
 
 
