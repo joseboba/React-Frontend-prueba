@@ -42,7 +42,7 @@ export const EditUser = () => {
                             name="name"
                             autoComplete="off"
                             onChange={ handleInputChange }
-                            value={ name }
+                            value={ Nombre }
                             placeholder={ Nombre }
                         />
                     </div>
@@ -55,7 +55,7 @@ export const EditUser = () => {
                             name="email"
                             autoComplete="off"
                             onChange={ handleInputChange }
-                            value={ email }
+                            value={ Correo }
                             placeholder={ Correo }
                         />
                     </div>
@@ -68,7 +68,7 @@ export const EditUser = () => {
                             name="username"
                             autoComplete="off"
                             onChange={ handleInputChange }
-                            value={ username }
+                            value={ Usuario  }
                             placeholder={ Usuario }
                         />
                     </div>

@@ -83,14 +83,16 @@ export const renewToken = () => {
             const body = await resp.json();
             console.log(body)
 
-
-        const { id, name, email, username } = body.usuario;
-
-        if(body.ok){
-            localStorage.setItem('token', body.token);
-            localStorage.setItem('token-init-date', new Date().getTime());
-            dispatch(login({ uid: id, name, email, username }))
+    
+        if(body.usuario){
+            const { id, name, email, username } = body.usuario;
+            if(body.ok){
+                localStorage.setItem('token', body.token);
+                localStorage.setItem('token-init-date', new Date().getTime());
+                dispatch(login({ uid: id, name, email, username }))
+            }
         }
+
 
     }
 
